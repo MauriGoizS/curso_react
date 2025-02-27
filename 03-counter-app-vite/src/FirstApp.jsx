@@ -8,13 +8,15 @@ const getName = ( name ) => {
     return `Hola ${ name }`;
 }
 
-export const FirstApp = () => {
+export const FirstApp = ( { title, subTitle } ) => {
+
+    // console.log( props );
 
     return (
         <>
-            <h1>Hola mundo</h1>
+            <h1>{ title }</h1>
             {/* <code>{ JSON.stringify( newMessage ) }</code> */}
-            <p>Soy un subtitulo</p>
+            <p>{ subTitle }</p>
             <p>{ getName( 'Mauri' ) }</p>
         </>        
     )        
