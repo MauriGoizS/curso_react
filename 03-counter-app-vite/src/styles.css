@@ -6,3 +6,16 @@ html, body {
     font-size: 1.3rem;
     padding: 70px;
 }
+
+button {
+    background-color: rgb(100, 212, 96);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    transition-duration: .5s;
+}
+
+button:hover {
+    color: white;
+    background-color: rgb(38, 155, 34);
+}
