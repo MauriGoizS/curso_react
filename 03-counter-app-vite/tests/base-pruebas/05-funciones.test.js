@@ -19,17 +19,13 @@ describe("Pruebas en 05-funciones", () => {
 
         const name = 'Mauricio';
 
-        const testUserActivo  = {
-            
-        };
-
         const user = getUsuarioActivo( name );
 
         expect( user ).toEqual({ 
             uid: 'ABC456',
             username: name, 
         });
-        
+
     })
 
 });
