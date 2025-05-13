@@ -1,4 +1,4 @@
-const getImage = async () => {
+export const getImage = async () => {
     try {
         const apiKey = "qDD4kPr1TMkHtmnMGo4BiaBD4An9KHOi";
         const resp = await fetch(
@@ -7,12 +7,12 @@ const getImage = async () => {
         const { data } = await resp.json();
         const { url } = data.images.original;
 
-        const img = document.createElement("img");
-        img.src = url;
-        document.body.append(img);
+        return url;
+
     } catch (error) {
         // Maneo del error
         console.error(error)
+        return 'No se encontro la imagen';
     }
 };
 
