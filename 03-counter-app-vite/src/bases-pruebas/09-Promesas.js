@@ -1,22 +1,8 @@
-import { getHeroById } from "../bases/08-imp-exp";
+import { getHeroById } from "./08-imp-exp";
 
-// const promesa = new Promise( (resolve, reject) => {
 
-//     setTimeout( () => {
 
-//         const heroe = getHeroById(2);
-//         resolve( heroe );
-        // reject( 'No se pudo encontrar el heroe' );
-//     }, 2000)
-
-// });
-
-// promesa.then( (heroe) => {
-//     console.log('Heroe', heroe);
-// })
-// .catch( err => console.warn( err ) );
-
-const getHeroByIdAsync = ( id ) => {
+export const getHeroByIdAsync = ( id ) => {
 
     return new Promise( (resolve, reject) => {
 
@@ -26,14 +12,10 @@ const getHeroByIdAsync = ( id ) => {
             if ( p1 ) {
                 resolve( p1 );
             }else {
-                reject( 'No se pudo encontrar el heroe' );
+                reject( 'No se pudo encontrar el heroe ' + id );
             }
 
-        }, 2000)
+        }, 1000)
     
     });
 }
-
-getHeroByIdAsync(1) 
-    .then( console.log )
-    .catch ( console.warn );
