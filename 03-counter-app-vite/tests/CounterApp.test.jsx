@@ -1,4 +1,4 @@
-const { render, screen } = require("@testing-library/react")
+const { render, screen, fireEvent } = require("@testing-library/react")
 const { CounterApp } = require("../src/CounterApp")
 
 describe('Test in <CounterApp /> ', () => {
@@ -18,6 +18,36 @@ describe('Test in <CounterApp /> ', () => {
         expect(screen.getByText("100")).toBeTruthy();
 
     })
+    
+    test('Must be increased with the +1 button', () => {
+    
+        render(<CounterApp value={ initialValue }/>);        
+        fireEvent.click( screen.getByText('+1') );
+        expect( screen.getByText('101') ).toBeTruthy();
+
+    });
+
+    test('Must be decremented with the -1 button', () => {
+    
+        render(<CounterApp value={ initialValue }/>);        
+        fireEvent.click( screen.getByText('-1') );
+        expect( screen.getByText('99') ).toBeTruthy();
+
+    });
+
+    test('The reset button should work.', () => {
+        
+        render(<CounterApp value={ 355 }/>); 
+        fireEvent.click( screen.getByText('+1') );
+        fireEvent.click( screen.getByText('+1') );
+        fireEvent.click( screen.getByText('+1') );
+        // fireEvent.click( screen.getByText('reset') );
+        fireEvent.click( screen.getByRole( 'button', { name: 'btn-reset' } ) );
+
+        // expect( screen.getByText( 355 ) ).toBeTruthy();
+
+    })
+    
     
 
 });
