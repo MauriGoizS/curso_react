@@ -13,7 +13,20 @@ const GifsApp = () => {
     }
 
     const handleSearch = ( query: string ) => {
-        console.log({ query });
+
+        // Convertir el query a minúsculas y eliminar espacios en blanco
+        query = query.trim().toLowerCase();
+
+        // Validar que el query no esté vacío
+        if ( query.length === 0 ) return;
+
+        // Evitar búsquedas duplicadas verificando si el término ya
+        // existe en previousTerms ( si existe, no hacer nada )
+        if (previousTerms.includes(query)) return;
+
+        // Actualizar previousTerms agregando el nuevo término al inicio y
+        //  limitando a 8 elementos máximo, es decir no puede ser un arreglo de más de 8.
+        setPreviousTerms( [query, ...previousTerms].splice(0,8) )
     }
 
     return (
